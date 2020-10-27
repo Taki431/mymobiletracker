@@ -8,7 +8,7 @@
  */ 
 
 require_once('../Util/bootstrap.php');
-
+require_once('../libs/Mobile_Detect.php');  // example of usage "http://mobiledetect.net/"
 header('Content-Type: application/json');
 $data = array("Test" => "Armin");
 echo json_encode($data);
@@ -16,7 +16,6 @@ echo json_encode($data);
 /*
 Description: This endpoint is called when the user installs the app on their device. 
 There are 5 extra parameters that can be used for some extra information about the app that we want to collect. 
-They are optional. Please do some research and pick max 5 parameters that are common for android/ios devices - like device type, model etc. 
 Token parameters is used so that only authorized users can call our service
 
 Method: POST 
@@ -56,5 +55,9 @@ HTTP 200 for successful user login.
 - Return user ID back to the app
 
 */
+ function getDeviceInfo()
+ {
+	$detect = new Mobile_Detect;
 
+ }
 ?>

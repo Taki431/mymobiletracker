@@ -16,7 +16,7 @@
 function getCountry($ip)
 {
     global $geoPlugin_array;
-    $apiurl = "http://www.geoplugin.net/php.gp?ip=".$ip;
+    $apiurl = "http://www.geoplugin.net/php.gp?ip={$ip}";
     echo $apiurl;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $apiurl);
