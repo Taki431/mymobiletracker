@@ -57,7 +57,31 @@ HTTP 200 for successful user login.
 */
  function getDeviceInfo()
  {
+	global $OS;
+	global $device;
+	global $platform;
+	global $browser;
 	$detect = new Mobile_Detect;
+	$detect->setUserAgent($userAgent);
+	
+	echo "Works!";
+	if ($detect->isMobile() || $detect->isTablet()) 
+	{
+		$platform = $userAgent->platform();
+		$OS = $userAgent->operatingSystem();
+		if($detect->isMobile())
+			$device = $userAgent->phoneDevice();
+		if($detect->tabletDevice())
+			$device = $userAgent->tabletDevice();
+		
+	} 
+	else 
+	{
+		error_log($ip . " >>> Blocking non mobile devices");
+		$ipBlockedByDigitalElement = true;
+		$blockReason = 'Blocking non mobile devices';
+	}
+
 
  }
 ?>
