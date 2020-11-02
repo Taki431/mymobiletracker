@@ -74,6 +74,18 @@ HTTP 200 for successful user login.
 		if($detect->tabletDevice())
 			$device = $userAgent->tabletDevice();
 		
+		$connection = mysqli_connect('localhost', 'root', '', 'MobileTracker');		
+		if($connection)
+		{
+			echo "connection succeeded!";
+			$query = "INSERT INTO "
+		}
+		else
+		{
+			die("Database connection failed!");
+		}
+		$query = "INSERT INTO Device_Info(Login Type, Device OS, Device Model)";
+		$query .= "VALUES ('Login_Type','$OS', '$device')";		// Still looking for a way to find login_type from user.
 	} 
 	else 
 	{

@@ -43,8 +43,8 @@ CREATE TABLE "App_Events" (
 );
 
 CREATE TABLE "Device_Info" (
-  "Device Id" Integer,
-  "User Id" Integer,
+  "Device Id" Integer AUTO_INCREMENT,
+  "User Id" Integer AUTO_INCREMENT,
   "Login Type" Varchar(50),
   "Device OS" Varchar(50),
   "Device Model " Varchar(50),
